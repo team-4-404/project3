@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стоматологическая клиника</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4 flex flex-wrap items-center justify-between">
+            <div class="logo flex items-center">
+                <img src="images/logo.png" alt="Логотип клиники" class="h-12">
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.php" class="text-gray-700 hover:text-blue-600 font-medium">Главная</a>
+                <a href="specialists.html" class="text-gray-700 hover:text-blue-600 font-medium">Специалисты</a>
+                <a href="contacts.html" class="text-gray-700 hover:text-blue-600 font-medium">Контакты</a>
+                <a href="advice.html" class="text-gray-700 hover:text-blue-600 font-medium">Советы по уходу</a>
+            </nav>
+            <div class="hidden lg:flex items-center space-x-6">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-phone text-blue-600"></i>
+                    <a href="tel:+71234567890" class="text-gray-800 font-medium hover:text-blue-600">+7 (123) 456-78-90</a>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                    <a href="https://clck.ru/3M96ZN" class="text-gray-800 hover:text-blue-600">г. Москва, ул. Примерная, д. 1</a>
+                </div>
+            </div>
+            <a href="#appointment" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">Записаться</a>
+        </div>
+    </header>
+
+    <!-- Dental Care Tips Section -->
+    <section class="py-16 bg-gradient-to-b from-blue-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 section-title">Советы по уходу за зубами</h2>
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">Профессиональные рекомендации для здоровья ваших зубов и красивой улыбки</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tip 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden dental-tip-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-tooth text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Правильная техника чистки</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Чистите зубы минимум 2 раза в день по 2-3 минуты. Держите щетку под углом 45 градусов к деснам и совершайте мягкие круговые движения.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-blue-800 font-medium"><i class="fas fa-lightbulb mr-2"></i>Совет: Меняйте зубную щетку каждые 3 месяца или когда щетинки начинают изнашиваться.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden dental-tip-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-spa text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Использование зубной нити</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Ежедневно используйте зубную нить для очистки межзубных промежутков. Это предотвращает образование кариеса и заболевания десен.</p>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <p class="text-green-800 font-medium"><i class="fas fa-lightbulb mr-2"></i>Совет: Если вам трудно пользоваться обычной нитью, попробуйте флоссеры или водяные ирригаторы.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden dental-tip-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-utensils text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Правильное питание</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Ограничьте потребление сладких и кислых продуктов. Включите в рацион молочные продукты, овощи и фрукты, богатые кальцием и витаминами.</p>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <p class="text-purple-800 font-medium"><i class="fas fa-lightbulb mr-2"></i>Совет: После употребления кислых продуктов подождите 30 минут перед чисткой зубов.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden dental-tip-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-tint text-yellow-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Гигиена языка</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Чистите язык специальным скребком или обратной стороной зубной щетки. Это удаляет бактерии и предотвращает неприятный запах изо рта.</p>
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <p class="text-yellow-800 font-medium"><i class="fas fa-lightbulb mr-2"></i>Совет: Для свежести дыхания используйте ополаскиватели без спирта.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden dental-tip-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-calendar-check text-red-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Регулярные осмотры</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Посещайте стоматолога каждые 6 месяцев для профилактического осмотра и профессиональной чистки зубов.</p>
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <p class="text-red-800 font-medium"><i class="fas fa-lightbulb mr-2"></i>Совет: Записывайтесь на прием заранее, чтобы не пропустить важные даты.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 6 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden dental-tip-card transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-baby text-indigo-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Уход за детскими зубами</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Начинайте чистить зубы ребенку с момента их появления. Используйте специальные детские щетки и пасты с низким содержанием фтора.</p>
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <p class="text-indigo-800 font-medium"><i class="fas fa-lightbulb mr-2"></i>Совет: Первый визит к стоматологу должен состояться в течение 6 месяцев после прорезывания первого зуба.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Tips -->
+            <div class="mt-16 bg-white rounded-xl shadow-md p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Дополнительные рекомендации</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-smoking-ban text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Откажитесь от курения</h4>
+                            <p class="text-gray-600">Курение способствует пожелтению зубов, заболеваниям десен и увеличивает риск рака полости рта.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-green-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-bottle-water text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Пейте воду</h4>
+                            <p class="text-gray-600">Вода помогает смывать остатки пищи и бактерии, а также поддерживает оптимальный уровень pH во рту.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-purple-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-cookie-bite text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Жевательная резинка</h4>
+                            <p class="text-gray-600">Жуйте жевательную резинку без сахара после еды, если нет возможности почистить зубы. Она стимулирует выработку слюны.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-yellow-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-teeth-open text-yellow-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Защита при занятиях спортом</h4>
+                            <p class="text-gray-600">Используйте каппы при занятиях контактными видами спорта, чтобы предотвратить травмы зубов.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Tips -->
+            <div class="mt-12 bg-red-50 rounded-xl p-8 border-l-4 border-red-500">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-exclamation-triangle text-red-500 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-bold text-red-800">Экстренные ситуации</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Сломанный зуб</h4>
+                        <p class="text-gray-600 mb-2">Сохраните обломки, прополощите рот теплой водой и немедленно обратитесь к стоматологу.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Выбитый зуб</h4>
+                        <p class="text-gray-600 mb-2">Держите зуб за коронку, промойте молоком или физраствором и попытайтесь вставить обратно. Если не получается, поместите в молоко и срочно к врачу.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Сильная зубная боль</h4>
+                        <p class="text-gray-600 mb-2">Прополощите рот теплой водой, используйте зубную нить для удаления застрявшей пищи. Примите обезболивающее и запишитесь на прием.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Отек десны или щеки</h4>
+                        <p class="text-gray-600 mb-2">Приложите холодный компресс снаружи и немедленно обратитесь за медицинской помощью — это может быть признаком абсцесса.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Логотип клиники">
+                    </div>
+                    <p class="footer-description">Мы заботимся о здоровье ваших зубов и делаем это профессионально уже более 15 лет.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Вконтакте"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                                
+                <div class="footer-contacts">
+                    <h3>Контакты</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <a>г.Москва, ул.Примерная, д.1</a><br>
+                            <small>Пн-Вс: 9:00 - 21:00</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <a href="tel:+71234567890">+7 (123) 456-78-90</a><br>
+                            <small>Ежедневно с 9:00 до 21:00</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <a href="mailto:info@dentclinic.ru">info@dentclinic.ru</a><br>
+                            <small>Онлайн-консультация</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="#services">Терапия</a></li>
+                        <li><a href="#services">Хирургия</a></li>
+                        <li><a href="#services">Ортопедия</a></li>
+                        <li><a href="#services">Ортодонтия</a></li>
+                        <li><a href="#services">Детская стоматология</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3>Подпишитесь на новости</h3>
+                    <p>Получайте информацию о наших акциях и специальных предложениях</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Ваш email" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="map">
+                <div id="yandex-map" style="width:100%; height:300px;"></div>
+            </div>
+                        
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2023 Стоматологическая клиника. Все права защищены.</p>
+                </div>
+                <div class="footer-policy">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_API_ключ&lang=ru_RU"></script>
+    <script>
+        ymaps.ready(function () {
+            var myMap = new ymaps.Map('yandex-map', {
+                center: [55.7558, 37.6173],
+                zoom: 16
+            });
+
+            var myPlacemark = new ymaps.Placemark([55.7558, 37.6173], {
+                balloonContent: 'г. Москва, ул. Примерная, д. 1'
+            }, {
+                preset: 'islands#blueHealthcareIcon'
+            });
+
+            myMap.geoObjects.add(myPlacemark);
+            myMap.behaviors.disable('scrollZoom');
+        });
+    </script>
+</body>
+</html>
