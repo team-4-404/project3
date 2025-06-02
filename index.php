@@ -220,38 +220,22 @@
         <div class="container">
             <h2>Наши специалисты</h2>
             <div class="specialists-grid">
+                <?php
+                require_once 'config.php';
+                $stmt = $pdo->query("SELECT * FROM specialists ORDER BY position, name");
+                $specialists = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                
+                foreach ($specialists as $specialist): ?>
                 <div class="specialist-card">
-                    <img src="images/doctor1.png" alt="Врач">
+                    <img src="<?php echo htmlspecialchars($specialist['image']); ?>" 
+                         alt="<?php echo htmlspecialchars($specialist['name']); ?>">
                     <div class="content">
-                        <h3>Дубровская Мария</h3>
-                        <p>Стоматолог-терапевт</p>
-                        <a href="#appointment" class="btn btn-primary">Записаться</a>
+                        <h3><?php echo htmlspecialchars($specialist['name']); ?></h3>
+                        <p><?php echo htmlspecialchars($specialist['position']); ?></p>
+                        <a href="appointment.php?specialist=<?php echo $specialist['id']; ?>" class="btn btn-primary">Записаться</a>
                     </div>
                 </div>
-                <div class="specialist-card">
-                    <img src="images/doctor2.png" alt="Врач">
-                    <div class="content">
-                        <h3>Сташкова Софья</h3>
-                        <p>Стоматолог-ортодонт</p>
-                        <a href="#appointment" class="btn btn-primary">Записаться</a>
-                    </div>
-                </div>
-                <div class="specialist-card">
-                    <img src="images/doctor3.png" alt="Врач">
-                    <div class="content">
-                        <h3>Фомкин Георгий</h3>
-                        <p>Стоматолог-хирург</p>
-                        <a href="#appointment" class="btn btn-primary">Записаться</a>
-                    </div>
-                </div>
-                <div class="specialist-card">
-                    <img src="images/doctor4.png" alt="Врач">
-                    <div class="content">
-                        <h3>Яман Зейнеп</h3>
-                        <p>Детский стоматолог</p>
-                        <a href="#appointment" class="btn btn-primary">Записаться</a>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -335,40 +319,72 @@
         </div>
     </section>
 
-        <!-- Appointment Form -->
-        <section id="appointment" class="appointment">
-            <div class="container">
-                <h2>Все еще не уверены в Вашем выборе? Запишитесь на бесплатную консультацию!</h2>
-                <div class="appointment-wrapper">
-                    <form class="appointment-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Ваше имя" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Телефон" required>
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="">Выберите услугу</option>
-                                <option value="therapy">Терапия</option>
-                                <option value="pediatric">Детская стоматология</option>
-                                <option value="surgery">Хирургия</option>
-                                <option value="orthopedics">Ортопедия</option>
-                                <option value="orthodontics">Ортодонтия</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="datetime-local" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Записаться</button>
-                    </form>
-                    <div class="appointment-image">
-                        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
-                             alt="Запись к врачу">
+    <!-- Appointment Section -->
+    <section id="appointment" class="appointment py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Запись на прием</h2>
+            
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
+                <form method="POST" action="appointment.php" class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Ваше имя</label>
+                        <input type="text" name="name" required
+                               class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
                     </div>
-                </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Телефон</label>
+                        <input type="tel" name="phone" required
+                               class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Услуга</label>
+                        <select name="service" id="service" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+                            <option value="">Выберите услугу</option>
+                            <option value="therapy">Терапия</option>
+                            <option value="pediatric">Детская стоматология</option>
+                            <option value="surgery">Хирургия</option>
+                            <option value="orthopedics">Ортопедия</option>
+                            <option value="orthodontics">Ортодонтия</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Специалист</label>
+                        <select name="specialist_id" id="specialist" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+                            <option value="">Выберите специалиста</option>
+                            <?php
+                            require_once 'config.php';
+                            $stmt = $pdo->query("SELECT id, name, position, specialization FROM specialists ORDER BY position, name");
+                            $specialists = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                            
+                            foreach ($specialists as $spec): ?>
+                                <option value="<?php echo $spec['id']; ?>" 
+                                        data-specialization="<?php echo htmlspecialchars($spec['specialization']); ?>">
+                                    <?php echo htmlspecialchars($spec['name'] . ' - ' . $spec['position']); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Дата приема</label>
+                        <input type="date" id="appointment_date" name="appointment_date" required
+                               min="<?php echo date('Y-m-d'); ?>"
+                               class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+                        Записаться на прием
+                    </button>
+                </form>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -441,7 +457,7 @@
 
             <div class="footer-bottom">
                 <div class="footer-copyright">
-                    <p>&copy; 2023 Стоматологическая клиника. Все права защищены.</p>
+                    <p>&copy; 2023 Стоматологическая клиника 404. Все права защищены.</p>
                 </div>
                 <div class="footer-policy">
                     <a href="#">Политика конфиденциальности</a>
@@ -491,8 +507,22 @@
             myMap.geoObjects.add(myPlacemark);
             myMap.behaviors.disable('scrollZoom');
         });
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-        <script src="script.js"></script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const specialistSelect = document.getElementById('specialist');
+            const serviceSelect = document.getElementById('service');
+
+            specialistSelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                const specialization = selectedOption.getAttribute('data-specialization');
+                
+                if (specialization) {
+                    serviceSelect.value = specialization;
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
